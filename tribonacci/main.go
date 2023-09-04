@@ -1,10 +1,7 @@
 package tribonacci
 
-import "fmt"
-
 func Tribonacci(signature [3]float64, n int) []float64 {
-	r := signature[:]
-	fmt.Println("----", r)
+
 	res := make([]float64, 0, n)
 	if n == 0 {
 		return res
@@ -12,9 +9,8 @@ func Tribonacci(signature [3]float64, n int) []float64 {
 	if n <= 3 {
 		return signature[:n]
 	} else {
-		// res = append(res, signature[:3]...)
-		res := signature[:] // copy whole signature to res
-
+		res = append(res, signature[:3]...)
+		// res := signature[:] just points
 		recTribonacci(&res, 0, n)
 	}
 	return res
