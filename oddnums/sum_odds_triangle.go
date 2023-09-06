@@ -19,3 +19,5 @@ func RowSumOddNumbers(n int) int {
 	}
 	return sum
 }
+
+// NOTE: n*n*n also works well
