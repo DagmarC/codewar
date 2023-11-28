@@ -1,0 +1,53 @@
+This question is actually like the mathematics P & C question
+
+Find the rank of the word "stack" when arranged in dictionary order.
+
+Given the input string as NILSU Take a word which we have to find the rank. Take "SUNIL" for example.
+
+Now arrange the letter of "SUNIL" in alphabetical order.
+
+It will be. "I L N S U".
+
+Now take the first letter. Its "I". Now check, is the letter "I" the first letter of "SUNIL"? No. The number of words that can be formed starting with I will be 4!, so we know that there will be 4! words before "SUNIL".
+
+I = 4! = 24
+
+Now go for the second letter. Its "L". Now check once again if this letter we want in first position? No. So the number of words can be formed starting with "L" will be 4!.
+
+L = 4! = 24
+
+Now go for "N". Is this we want? No. Write down the number of words can be formed starting with "N", once again 4!
+
+N = 4! = 24
+
+Now go for "S". Is this what we want? Yes. Now remove the letter from the alphabetically ordered word. It will now be "I L N U"
+
+Write S and check the word once again in the list. Is we want SI? No. So the number of words can be formed starting with SI will be 3!
+
+[S]:I-> 3! = 6
+
+Go for L. is we want SL? No. So it will be 3!.
+
+[S]:L-> 3! = 6
+
+Go for N. is we want SN? No.
+
+[S]:N-> 3! = 6
+
+Go for SU. Is this we want? Yes. Cut the letter U from the list and then it will be "I L N". Now try I. is we want SUI? No. So the number of words can be formed which starts from SUI will be 2!
+
+[SU]:I-> 2! = 2 Now go for L. Do we want "SUL". No. so the number of words starting with SUL will be 2!.
+
+[SU]:L-> 2! = 2
+
+Now go for N. Is we want SUN? Yes, now remove that letter. and this will be "I L". Do we want "SUNI"? Yes. Remove that letter. The only letter left is "L".
+
+Now go for L. Do we want SUNIL? Yes. SUNIL were the first options, so we have 1!. [SUN][I][L] = 1! = 1
+
+Now add the whole numbers we get. The sum will be.
+
+24 + 24 + 24 + 6 + 6 + 6 + 2 + 2 + 1 = 95.
+
+So the word SUNIL will be at 95th position if we count the words that can be created using the letters of SUNIL arranged in dictionary order.
+
+Thus through this method you could solve this problem quite easily.
