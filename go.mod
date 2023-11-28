@@ -16,6 +16,7 @@ require (
 
 require (
 	github.com/fsnotify/fsnotify v1.4.9 // indirect
+	github.com/gammazero/deque v0.2.1
 	github.com/nxadm/tail v1.4.8 // indirect
 	github.com/onsi/gomega v1.28.0
 	golang.org/x/sys v0.12.0 // indirect
