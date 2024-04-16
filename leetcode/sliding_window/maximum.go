@@ -53,6 +53,8 @@ func (d *deque) Push(n int) {
 	*d = append(*d, n)
 }
 
+// The maxSlidingWindow function efficiently finds the maximum value in a sliding window of a given
+// size within an array of integers.
 func maxSlidingWindow(nums []int, k int) []int {
 	recentlySeenMax := NewDeque()
 	maximums := make([]int, 0, len(nums))
