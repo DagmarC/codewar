@@ -22,6 +22,4 @@ func TestFindPoisendDuration(t *testing.T) {
 			t.Errorf("got %v, want %v", got, tc.want)
 		}
 	}
-
-	// 1 2 3 4 5 6 9 10 11
 }
