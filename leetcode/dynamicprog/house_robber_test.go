@@ -17,7 +17,12 @@ package dynamicproblems
 // Explanation: Rob house 1 (money = 2), rob house 3 (money = 9) and rob house 5 (money = 1).
 // Total amount you can rob = 2 + 9 + 1 = 12.
 
-import "testing"
+import (
+	"fmt"
+	"math/rand"
+	"testing"
+	"time"
+)
 
 func TestRob(t *testing.T) {
 	tests := []struct {
@@ -31,8 +36,56 @@ func TestRob(t *testing.T) {
 	}
 	for _, tc := range tests {
 		var got int
-		if got = robLinear(tc.input); got != tc.want {
+		if got = robEffective(tc.input); got != tc.want {
 			t.Errorf("House Robber: got %d want %d", got, tc.want)
 		}
 	}
 }
+
+// Benchmark function for rob function
+func BenchmarkRob(b *testing.B) {
+	// Initialize random number generator with a fixed seed
+	// Initialize random number generator
+	randSource := rand.NewSource(time.Now().UnixNano())
+	r := rand.New(randSource)
+
+	// Generate random test cases
+	for i := 0; i < b.N; i++ {
+		n := r.Intn(1000) + 1 // Generate a random number between 1 and 1000 for array length
+		nums := generateRandomArray(n)
+		b.Run(fmt.Sprintf("Length: %d", n), func(b *testing.B) {
+			for j := 0; j < b.N; j++ {
+				rob(nums)
+			}
+		})
+	}
+}
+
+// Benchmark function for robLinear function
+func BenchmarkRobLinear(b *testing.B) {
+	// Initialize random number generator with a fixed seed
+	// Initialize random number generator
+	randSource := rand.NewSource(time.Now().UnixNano())
+	r := rand.New(randSource)
+
+	// Generate random test cases
+	for i := 0; i < b.N; i++ {
+		n := r.Intn(1000) + 1 // Generate a random number between 1 and 1000 for array length
+		nums := generateRandomArray(n)
+		b.Run(fmt.Sprintf("Length: %d", n), func(b *testing.B) {
+			for j := 0; j < b.N; j++ {
+				robLinear(nums)
+			}
+		})
+	}
+}
+
+// Helper function to generate a random array of integers
+func generateRandomArray(length int) []int {
+	arr := make([]int, length)
+	for i := 0; i < length; i++ {
+		arr[i] = rand.Intn(1000) // Generate random integers between 0 and 999
+	}
+	return arr
+}
+
