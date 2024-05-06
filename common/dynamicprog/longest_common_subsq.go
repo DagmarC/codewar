@@ -8,7 +8,7 @@ import (
 func LCS(s1, s2 string) string {
 	m := len(s1)
 	n := len(s2)
-	table := init2DTable(m+1, n+1)
+	table := InitDPTable(m+1, n+1, 0)
 
 	LCSTable(s1, s2, m, n, &table)
 
@@ -47,14 +47,6 @@ func getLCS(s1, s2 string, i, j int, table *[][]int) string {
 		}
 	}
 	return reversed(lcs.String())
-}
-
-func init2DTable(m, n int) [][]int {
-	table := make([][]int, m)
-	for i := range table {
-		table[i] = make([]int, n)
-	}
-	return table
 }
 
 func reversed(s string) string {
